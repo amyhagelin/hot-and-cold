@@ -26,7 +26,7 @@ export default class MainForm extends React.Component {
 			    	<button>Guess</button>
 			    </form>
 			    <div>
-			    	{ 'Guess # ' + guessesNo }
+			    	<h3>{ 'Guess # ' + guessesNo }</h3>
 			    </div>
 		    </div>
 		);	

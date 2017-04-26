@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function NewGame(props) {
-    const text  = 'New Game';
+    const text  = 'NEW GAME';
     return (
-        <div>
-            <a onClick={props.solutionHandler} >{text}</a>
+        <div className="new-game">
+            <a onClick={props.solutionHandler} ><h3>{text}</h3></a>
         </div>
     );
 };

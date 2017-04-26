@@ -27,7 +27,8 @@ class App extends Component {
   solutionHandler = () => {
     this.setState({ 
       solution: this.randomNum(),
-      guessesArray: []
+      guessesArray: [],
+      currentGuess: 0
     })
   }
 
@@ -41,21 +42,23 @@ class App extends Component {
 
   render() {
     return (  
-      <div>
+      <div className="board">
         <About />
         <NewGame 
           solutionHandler={ this.solutionHandler }
         />
-        <Message 
-          currentGuess={ this.state.currentGuess }
-          solution={ this.state.solution }
-        />
-        <MainForm 
-          guessesArray={ this.state.guessesArray }
-          onValueSubmitted={ this.currentGuessHandler }
-        />
-        <Guesses guessesArray={ this.state.guessesArray } />        
-        { this.state.solution }
+        <div><h1>HOT or COLD</h1></div>
+        <div className="game">
+          <Message 
+            currentGuess={ this.state.currentGuess }
+            solution={ this.state.solution }
+          />
+          <MainForm 
+            guessesArray={ this.state.guessesArray }
+            onValueSubmitted={ this.currentGuessHandler }
+          />
+          <Guesses guessesArray={ this.state.guessesArray } />        
+        </div>
       </div>
     );
   }

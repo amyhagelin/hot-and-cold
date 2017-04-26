@@ -9,7 +9,10 @@ export default function Message(props) {
         difference *= -1;
       }
 
-      if (solution === currentGuess) {
+      if (currentGuess === 0) {
+        message = "Take a guess:";
+      }
+      else if (solution === currentGuess) {
         message = "Correct!";
       }
       else if (difference < 5) {
@@ -28,8 +31,8 @@ export default function Message(props) {
     const text = messageHandler(props.solution, props.currentGuess);
 
     return (
-        <div>
-            {text}
+        <div className="message">
+            <h2>{text}</h2>
         </div>
     );
 };

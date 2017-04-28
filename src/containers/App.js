@@ -5,6 +5,8 @@ import Message from '../components/Message';
 import About from '../components/About';
 import Guesses from '../components/Guesses';
 import NewGame from '../components/NewGame';
+import AboutPopup from '../components/AboutPopup';
+
 
 
 // 2.) board / main container 
@@ -16,7 +18,8 @@ class App extends Component {
     this.state = {
       solution: this.randomNum(),
       currentGuess: 0,
-      guessesArray: []
+      guessesArray: [],
+      popupOpened: false
     }
   }
 
@@ -39,11 +42,27 @@ class App extends Component {
     }));
   }
 
+aboutHandler = () => {
+  console.log("clicked");
+  this.setState( {popupOpened: true} )
+}
+
+aboutPopupHandler = () => {
+  console.log("clicked");
+  this.setState( {popupOpened: false} )
+}
+
 
   render() {
     return (  
       <div className="board">
-        <About />
+        <About 
+          aboutHandler={ this.aboutHandler }
+        />
+        <AboutPopup
+          popupOpened={ this.state.popupOpened }
+          aboutPopupHandler={ this.aboutPopupHandler }
+        />
         <NewGame 
           solutionHandler={ this.solutionHandler }
         />

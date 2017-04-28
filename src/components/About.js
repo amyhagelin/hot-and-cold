@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function About() {
+export default function About(props) {
     const text  = 'ABOUT';
     return (
         <div className="about">
-            <h3>{text}</h3>
+            <a onClick={ props.aboutHandler } ><h3>{text}</h3></a>
         </div>
     );
 };

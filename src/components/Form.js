@@ -6,6 +6,7 @@ export default class MainForm extends React.Component {
 		e.preventDefault();
 		const value = parseInt(this.numberInput.value, 10);
 		this.props.onValueSubmitted(value);
+		this.numberInput.value = "";
 	}
 
 	render() {

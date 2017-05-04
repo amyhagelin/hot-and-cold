@@ -8,7 +8,7 @@ it('Renders without crashing', () => {
 
 it('Fires the correct handlers', () => {
 	const callback = jest.fn();
-    const wrapper = shallow(<NewGame solutionHandler={ this.solutionHandler }/>);
-    wrapper.find('link').simulate('click');
+    const wrapper = shallow(<NewGame solutionHandler={ callback }/>);
+    wrapper.find('a').simulate('click');
     expect(callback).toHaveBeenCalled();
 });

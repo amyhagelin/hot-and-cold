@@ -1,5 +1,5 @@
 import MainForm from './Form';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 
 it('Renders without crashing', () => {
@@ -14,7 +14,7 @@ it('Renders correct number of guesses for given array', () => {
 
 it('Fires correct handler', () => {
 	const callback = jest.fn();
-    const wrapper = shallow(<MainForm onValueSubmitted={ callback } />);
-    wrapper.find('button').simulate('click');
+    const wrapper = mount(<MainForm onValueSubmitted={ callback } />);
+    wrapper.find('button').simulate('submit');
     expect(callback).toHaveBeenCalled();
 });
